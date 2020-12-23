@@ -12,6 +12,9 @@
     <ion-item *ngFor="let popular of listPopular">
       <ion-label>
         <img [src]="'https://image.tmdb.org/t/p/w200'+popular.poster_path" alt="">
+        <p>{{ popular.release_date | date:"yyyy"}}</p>
+        <ion-icon slot="start" name="star"></ion-icon>
+        <p>{{ popular.vote_average }}/10</p>
       </ion-label>
     </ion-item>
   </ion-list>
