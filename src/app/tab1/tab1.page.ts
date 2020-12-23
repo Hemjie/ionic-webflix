@@ -21,7 +21,8 @@ export class Tab1Page {
 
     this.PopularService.getPopular().then(popularP => {
       this.listPopular = popularP['results'];
+      
   });
-  
 }
+
 }

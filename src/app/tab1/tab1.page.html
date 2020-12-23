@@ -8,14 +8,28 @@
 
 <ion-content>
   <h3>Populaires</h3>
-  <ion-list *ngIf="listPopular">
-    <ion-item *ngFor="let popular of listPopular">
-      <ion-label>
-        <img [src]="'https://image.tmdb.org/t/p/w200'+popular.poster_path" alt="">
-        <p>{{ popular.release_date | date:"yyyy"}}</p>
-        <ion-icon slot="start" name="star"></ion-icon>
-        <p>{{ popular.vote_average }}/10</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+
+  <ion-grid *ngIf="listPopular">
+    <ion-row>
+      <ion-col size="6" *ngFor="let popular of listPopular">
+        <ion-card>
+          <img [src]="'https://image.tmdb.org/t/p/w200'+popular.poster_path" alt="">        
+        </ion-card>
+        <h6><strong>{{ popular.title}}</strong></h6>
+        <ion-grid>
+          <ion-row>
+            <ion-col>{{ popular.release_date | date:"yyyy"}}</ion-col>
+            <ion-col>
+              
+  <ion-icon name="star"></ion-icon>
+            </ion-col>
+            <ion-col>{{ popular.vote_average }}/10</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>      
+    </ion-row>
+  </ion-grid>
+
 </ion-content>
+
+  
